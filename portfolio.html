@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rahul Kumar — CS Undergraduate | NIT Rourkela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --surface: #ffffff;
+    --ink: #0e0e0e;
+    --ink-muted: #5a5a5a;
+    --accent: #1a3a5c;
+    --accent-warm: #c8642a;
+    --accent-light: #e8f0f8;
+    --border: #e0dbd2;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 4px;
+    --shadow: 0 2px 20px rgba(0,0,0,0.06);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.10);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 120px 6vw 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent-warm);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--accent-warm);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 440px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.75rem 1.8rem;
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.22s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #0f2a45; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,58,92,0.3); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+  }
+  .btn-outline:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+  /* Hero right: stat card grid */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.6s both;
+  }
+  .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+
+  .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .stat-card:nth-child(2) { animation-delay: 0.2s; }
+  .stat-card:nth-child(3) { animation-delay: 0.3s; }
+  .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section {
+    padding: 80px 6vw;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent-warm);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.6rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  .edu-card:hover { transform: translateX(4px); }
+
+  .edu-inst {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-degree {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .edu-meta {
+    text-align: right;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+  }
+
+  .edu-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--mono);
+  }
+
+  /* ── SKILLS ── */
+  .skills-wrapper {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 1.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+
+  .skill-cat {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    padding: 0.25rem 0.7rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+    transition: all 0.18s;
+  }
+  .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.22s, box-shadow 0.22s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .project-name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+
+  .project-date {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    padding-top: 0.3rem;
+  }
+
+  .project-stack {
+    font-size: 0.78rem;
+    color: var(--accent-warm);
+    font-style: italic;
+    font-family: var(--mono);
+  }
+
+  .project-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .project-points li {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .project-points li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.78rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .project-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    transition: all 0.18s;
+    font-family: var(--mono);
+  }
+  .project-link:hover { background: var(--accent); color: #fff; }
+
+  /* ── ACHIEVEMENTS ── */
+  .ach-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .ach-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.2rem;
+    align-items: start;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  .ach-card:hover { transform: translateX(4px); }
+
+  .ach-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .ach-body h4 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .ach-body p {
+    font-size: 0.83rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  .ach-date {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* ── COURSEWORK ── */
+  .course-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .course-chip {
+    padding: 0.4rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.84rem;
+    color: var(--ink-muted);
+    box-shadow: var(--shadow);
+    transition: all 0.18s;
+  }
+  .course-chip:hover { border-color: var(--accent-warm); color: var(--accent-warm); }
+
+  /* ── CONTACT / FOOTER ── */
+  .contact-section {
+    background: var(--accent);
+    color: #fff;
+    padding: 80px 6vw;
+    text-align: center;
+  }
+
+  .contact-section .section-label { color: #8faec9; }
+
+  .contact-section .section-title {
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-section p {
+    color: #b8cfe0;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: rgba(255,255,255,0.06);
+  }
+  .social-link:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+  .contact-email {
+    font-family: var(--mono);
+    font-size: 1rem;
+    color: #8faec9;
+  }
+
+  footer {
+    background: #0a1e30;
+    color: #4a6a84;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.78rem;
+    font-family: var(--mono);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-text { animation: fadeUp 0.7s both; }
+  .hero-text > * { animation: fadeUp 0.7s both; }
+  .hero-text > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.35s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 3rem; padding-top: 100px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skill-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .ach-card { grid-template-columns: auto 1fr; }
+    .ach-date { grid-column: 2; }
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    section { padding: 60px 5vw; }
+  }
+
+  @media (max-width: 500px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .edu-card { grid-template-columns: 1fr; }
+    .edu-meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Rahul Kumar</a>
+  <ul class="nav-links">
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="background: var(--bg);">
+  <div class="hero">
+    <div class="hero-text">
+      <p class="hero-tag">CS Undergraduate · NIT Rourkela</p>
+      <h1>Rahul<br><em>Kumar</em></h1>
+      <p class="hero-desc">
+        Building full-stack web applications and exploring machine learning.
+        Passionate about clean code, scalable architecture, and solving real problems.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">7.03</div>
+        <div class="stat-label">CGPA at NIT Rourkela</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Full-Stack Projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">LeetCode Problems Solved</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1512</div>
+        <div class="stat-label">Peak LeetCode Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label fade-in">Background</p>
+  <h2 class="section-title fade-in">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card fade-in">
+      <div>
+        <div class="edu-inst">National Institute of Technology, Rourkela</div>
+        <div class="edu-degree">B.Tech in Computer Science and Engineering</div>
+        <span class="edu-badge">CGPA — 7.03</span>
+      </div>
+      <div class="edu-meta">
+        Aug 2023 – Present<br>
+        <span style="color:var(--ink-muted); font-family:var(--sans); font-size:0.78rem;">Rourkela, Odisha</span>
+      </div>
+    </div>
+    <div class="edu-card fade-in">
+      <div>
+        <div class="edu-inst">Sarvodaya Shiksha Sadan, Ellenabad</div>
+        <div class="edu-degree">AISSCE – CBSE Science (PCM)</div>
+        <span class="edu-badge">85.4%</span>
+      </div>
+      <div class="edu-meta">
+        July 2022<br>
+        <span style="color:var(--ink-muted); font-family:var(--sans); font-size:0.78rem;">Sirsa, Haryana</span>
+      </div>
+    </div>
+    <div class="edu-card fade-in">
+      <div>
+        <div class="edu-inst">Utkramit M S Mubarakput Barh, Patna</div>
+        <div class="edu-degree">AISSE – CBSE</div>
+        <span class="edu-badge">84%</span>
+      </div>
+      <div class="edu-meta">
+        July 2020<br>
+        <span style="color:var(--ink-muted); font-family:var(--sans); font-size:0.78rem;">Sirsa, Haryana</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <p class="section-label fade-in" style="margin-bottom:1rem;">Relevant Coursework</p>
+    <div class="course-grid fade-in">
+      <span class="course-chip">Data Structures & Algorithms</span>
+      <span class="course-chip">Object-Oriented Programming</span>
+      <span class="course-chip">Machine Learning</span>
+      <span class="course-chip">Database Management Systems</span>
+      <span class="course-chip">Computer Networking</span>
+      <span class="course-chip">Operating Systems</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label fade-in">What I work with</p>
+  <h2 class="section-title fade-in">Technical Skills</h2>
+  <div class="skills-wrapper">
+    <div class="skill-row fade-in">
+      <div class="skill-cat">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">C++</span>
+        <span class="tag">Python</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+      </div>
+    </div>
+    <div class="skill-row fade-in">
+      <div class="skill-cat">Frameworks</div>
+      <div class="skill-tags">
+        <span class="tag">React.js</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express.js</span>
+        <span class="tag">Tailwind CSS</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Pandas</span>
+      </div>
+    </div>
+    <div class="skill-row fade-in">
+      <div class="skill-cat">Databases</div>
+      <div class="skill-tags">
+        <span class="tag">MongoDB</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-row fade-in">
+      <div class="skill-cat">Developer Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Git</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Jupyter Notebook</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label fade-in">What I've built</p>
+  <h2 class="section-title fade-in">Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-name">BookVerse</div>
+        <div class="project-date">July 2025</div>
+      </div>
+      <div class="project-stack">React.js · Node.js · Express.js · MongoDB · JWT Auth · Tailwind CSS</div>
+      <ul class="project-points">
+        <li>Developed a full-stack <strong>online bookstore application</strong> enabling users to browse, search, and purchase books through an intuitive web interface.</li>
+        <li>Designed scalable <strong>RESTful APIs</strong> using Node.js and Express.js for managing users, books, and order transactions.</li>
+        <li>Integrated MongoDB for database management and <strong>JWT-based authentication</strong> for secure protected routes.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://github.com/123cs0178" class="project-link" target="_blank">GitHub ↗</a>
+        <a href="#" class="project-link" target="_blank">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-name">EasyCycle</div>
+        <div class="project-date">Dec 2025</div>
+      </div>
+      <div class="project-stack">ReactJS · Firebase · Tailwind CSS · Shadcn UI</div>
+      <ul class="project-points">
+        <li>Built a full-stack <strong>cycle sharing & management platform</strong> for college campuses enabling students to lend, borrow, and track cycle availability.</li>
+        <li>Executed secure <strong>user authentication</strong> and real-time database operations using Firebase Authentication and Cloud Firestore.</li>
+        <li>Crafted a modern, mobile-responsive frontend using <strong>ReactJS, Tailwind CSS, and Shadcn UI</strong> for accessibility.</li>
+      </ul>
+      <div class="project-links">
+        <a href="https://github.com/123cs0178" class="project-link" target="_blank">GitHub ↗</a>
+        <a href="#" class="project-link" target="_blank">Live Demo ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-label fade-in">Recognition & Learning</p>
+  <h2 class="section-title fade-in">Achievements</h2>
+  <div class="ach-list">
+
+    <div class="ach-card fade-in">
+      <div class="ach-icon">🎓</div>
+      <div class="ach-body">
+        <h4>Supervised Machine Learning — DeepLearning.AI & Stanford Online (Andrew Ng)</h4>
+        <p>Completed coursework covering regression, classification, and core machine learning concepts.</p>
+      </div>
+      <div class="ach-date">Mar 2026<br>Certificate</div>
+    </div>
+
+    <div class="ach-card fade-in">
+      <div class="ach-icon">🏆</div>
+      <div class="ach-body">
+        <h4>1st Runner-Up — Culfest, NIT Jamshedpur</h4>
+        <p>Secured 1st Runner-up in an inter-college competition, demonstrating teamwork, problem-solving, and competitive performance.</p>
+      </div>
+      <div class="ach-date">June 2025</div>
+    </div>
+
+    <div class="ach-card fade-in">
+      <div class="ach-icon">🌐</div>
+      <div class="ach-body">
+        <h4>Coordinator — NITRIMUN (NIT Rourkela Model United Nations)</h4>
+        <p>Coordinated delegate outreach, event logistics, and team collaboration for MUN events, ensuring smooth execution under tight deadlines.</p>
+      </div>
+      <div class="ach-date">May 2024 – Present</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <p class="section-label">Let's connect</p>
+  <h2 class="section-title" style="font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem);">Get In Touch</h2>
+  <p>Open to internships, collaborations, and interesting conversations.</p>
+  <div class="social-links">
+    <a href="https://github.com/123cs0178" class="social-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/rahul-kumar-9ba409413/" class="social-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://leetcode.com/u/Rahul_Bror/" class="social-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.37 1.37 0 00-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 00-1.209 2.104 5.35 5.35 0 00-.125 2.328l.001.013.001.012a5.316 5.316 0 001.35 2.956 5.18 5.18 0 002.456 1.555 5.458 5.458 0 003.012.028 4.683 4.683 0 001.802-.98l3.087-2.9a1.372 1.372 0 00-1.87-2.01l-3.093 2.906a2.04 2.04 0 01-.81.43 2.694 2.694 0 01-1.49-.015 2.44 2.44 0 01-1.15-.737 2.552 2.552 0 01-.647-1.42 2.6 2.6 0 01.06-1.124c.18-.585.48-1.01.84-1.397l3.862-4.135 5.42-5.8a1.373 1.373 0 00-.036-1.94A1.37 1.37 0 0013.483 0zm-2.866 12.815a1.37 1.37 0 00-1.04.444l-1.406 1.51a5.005 5.005 0 00-1.248 3.544 5.014 5.014 0 001.562 3.462 4.95 4.95 0 003.443 1.38 4.99 4.99 0 003.395-1.338l4.108-4.361a1.372 1.372 0 00-1.89-1.99l-4.1 4.353a2.245 2.245 0 01-1.516.6 2.208 2.208 0 01-1.534-.614 2.234 2.234 0 01-.698-1.545 2.226 2.226 0 01.55-1.578l1.398-1.5a1.37 1.37 0 00-1.024-2.367z"/></svg>
+      LeetCode
+    </a>
+    <a href="https://www.codechef.com/users/adapt_lice_87" class="social-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.257 0C5.04 0 0 5.04 0 11.257c0 6.218 5.04 11.257 11.257 11.257 6.218 0 11.257-5.04 11.257-11.257C22.514 5.04 17.475 0 11.257 0zm0 1.5c5.39 0 9.757 4.368 9.757 9.757 0 5.39-4.368 9.757-9.757 9.757C5.867 21.014 1.5 16.646 1.5 11.257 1.5 5.867 5.867 1.5 11.257 1.5zm-.3 3.6l-4.5 4.5 1.06 1.06 3.44-3.44 3.44 3.44 1.06-1.06-4.5-4.5zm0 4.5l-4.5 4.5 1.06 1.06 3.44-3.44 3.44 3.44 1.06-1.06-4.5-4.5z"/></svg>
+      CodeChef
+    </a>
+    <a href="mailto:123cs0178@nitrkl.ac.in" class="social-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Email
+    </a>
+  </div>
+  <div class="contact-email">123cs0178@nitrkl.ac.in &nbsp;·&nbsp; (+91) 9034341712</div>
+</div>
+
+<footer>
+  © 2026 Rahul Kumar · NIT Rourkela · Built with HTML, CSS & ♥
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Stagger fade-in children in same section
+  document.querySelectorAll('section').forEach(sec => {
+    const items = sec.querySelectorAll('.fade-in');
+    items.forEach((item, i) => {
+      item.style.transitionDelay = `${i * 0.08}s`;
+    });
+  });
+</script>
+
+</body>
+</html>
