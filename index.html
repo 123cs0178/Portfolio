@@ -292,7 +292,7 @@
 
   .skill-row {
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 180px 1fr;
     align-items: center;
     gap: 1.5rem;
     padding: 1.2rem 1.6rem;
@@ -432,7 +432,7 @@
   }
   .project-link:hover { background: var(--accent); color: #fff; }
 
-  /* ── ACHIEVEMENTS ── */
+  /* ── EXTRACURRICULAR / ACHIEVEMENTS ── */
   .ach-list {
     display: grid;
     gap: 1rem;
@@ -516,6 +516,8 @@
   .contact-section .section-title {
     color: #fff;
     margin-bottom: 1.2rem;
+    font-family: var(--serif);
+    font-size: clamp(1.8rem,3vw,2.8rem);
   }
 
   .contact-section p {
@@ -615,7 +617,7 @@
     <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#activities">Activities</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -628,7 +630,7 @@
       <h1>Rahul<br><em>Kumar</em></h1>
       <p class="hero-desc">
         Building full-stack web applications and exploring machine learning.
-        Passionate about clean code, scalable architecture, and solving real problems.
+        Passionate about real-time systems, NLP, and solving problems with clean, scalable code.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -642,15 +644,15 @@
       </div>
       <div class="stat-card">
         <div class="stat-num">2+</div>
-        <div class="stat-label">Full-Stack Projects</div>
+        <div class="stat-label">Full-Stack Projects Live</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">200+</div>
-        <div class="stat-label">LeetCode Problems Solved</div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Languages & Frameworks</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1512</div>
-        <div class="stat-label">Peak LeetCode Rating</div>
+        <div class="stat-num">MUN</div>
+        <div class="stat-label">Coordinator · NITRIMUN</div>
       </div>
     </div>
   </div>
@@ -729,15 +731,25 @@
       </div>
     </div>
     <div class="skill-row fade-in">
+      <div class="skill-cat">ML & AI</div>
+      <div class="skill-tags">
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Transformers (HuggingFace)</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Model Deployment</span>
+      </div>
+    </div>
+    <div class="skill-row fade-in">
       <div class="skill-cat">Frameworks</div>
       <div class="skill-tags">
         <span class="tag">React.js</span>
         <span class="tag">Node.js</span>
         <span class="tag">Express.js</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Socket.IO</span>
         <span class="tag">Tailwind CSS</span>
-        <span class="tag">Scikit-learn</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pandas</span>
       </div>
     </div>
     <div class="skill-row fade-in">
@@ -755,6 +767,8 @@
         <span class="tag">GitHub</span>
         <span class="tag">VS Code</span>
         <span class="tag">Jupyter Notebook</span>
+        <span class="tag">Render</span>
+        <span class="tag">Postman</span>
       </div>
     </div>
   </div>
@@ -770,35 +784,37 @@
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <div class="project-name">BookVerse</div>
-        <div class="project-date">July 2025</div>
+        <div class="project-name">SentimentLab</div>
+        <div class="project-date">June 2026</div>
       </div>
-      <div class="project-stack">React.js · Node.js · Express.js · MongoDB · JWT Auth · Tailwind CSS</div>
+      <div class="project-stack">React.js · FastAPI · Transformers · Hugging Face · Python · Render</div>
       <ul class="project-points">
-        <li>Developed a full-stack <strong>online bookstore application</strong> enabling users to browse, search, and purchase books through an intuitive web interface.</li>
-        <li>Designed scalable <strong>RESTful APIs</strong> using Node.js and Express.js for managing users, books, and order transactions.</li>
-        <li>Integrated MongoDB for database management and <strong>JWT-based authentication</strong> for secure protected routes.</li>
+        <li>Built a full-stack sentiment analysis platform using <strong>DistilBERT</strong> for real-time NLP inference.</li>
+        <li>Developed <strong>FastAPI</strong> endpoints supporting both single and batch sentiment predictions.</li>
+        <li>Designed interactive analytics dashboards with <strong>historical tracking and visualization</strong>.</li>
+        <li>Deployed frontend and backend independently on <strong>Render</strong>.</li>
       </ul>
       <div class="project-links">
-        <a href="https://github.com/123cs0178" class="project-link" target="_blank">GitHub ↗</a>
-        <a href="#" class="project-link" target="_blank">Live Demo ↗</a>
+        <a href="https://github.com/123cs0178/sentiment-dashboard" class="project-link" target="_blank">GitHub ↗</a>
+        <a href="https://sentiment-dashboard-frontend-m9ul.onrender.com/" class="project-link" target="_blank">Live Demo ↗</a>
       </div>
     </div>
 
     <div class="project-card fade-in">
       <div class="project-header">
-        <div class="project-name">EasyCycle</div>
-        <div class="project-date">Dec 2025</div>
+        <div class="project-name">Real-Time Chat</div>
+        <div class="project-date">June 2026</div>
       </div>
-      <div class="project-stack">ReactJS · Firebase · Tailwind CSS · Shadcn UI</div>
+      <div class="project-stack">React.js · Node.js · Express.js · Socket.IO · MongoDB · JWT</div>
       <ul class="project-points">
-        <li>Built a full-stack <strong>cycle sharing & management platform</strong> for college campuses enabling students to lend, borrow, and track cycle availability.</li>
-        <li>Executed secure <strong>user authentication</strong> and real-time database operations using Firebase Authentication and Cloud Firestore.</li>
-        <li>Crafted a modern, mobile-responsive frontend using <strong>ReactJS, Tailwind CSS, and Shadcn UI</strong> for accessibility.</li>
+        <li>Developed a full-stack messaging platform with <strong>instant bidirectional communication</strong> using Socket.IO.</li>
+        <li>Implemented <strong>JWT-based auth</strong>, user presence tracking, typing indicators, and persistent message storage with MongoDB.</li>
+        <li>Designed scalable <strong>REST APIs and WebSocket</strong> event handling for secure one-to-one conversations.</li>
+        <li>Deployed production-ready services with <strong>live real-time synchronization</strong>.</li>
       </ul>
       <div class="project-links">
-        <a href="https://github.com/123cs0178" class="project-link" target="_blank">GitHub ↗</a>
-        <a href="#" class="project-link" target="_blank">Live Demo ↗</a>
+        <a href="https://github.com/123cs0178/chat-app" class="project-link" target="_blank">GitHub ↗</a>
+        <a href="https://chat-app-bcme.vercel.app/" class="project-link" target="_blank">Live Demo ↗</a>
       </div>
     </div>
 
@@ -807,35 +823,17 @@
 
 <div class="divider"></div>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <p class="section-label fade-in">Recognition & Learning</p>
-  <h2 class="section-title fade-in">Achievements</h2>
+<!-- EXTRACURRICULAR -->
+<section id="activities">
+  <p class="section-label fade-in">Beyond the classroom</p>
+  <h2 class="section-title fade-in">Extracurricular Activities</h2>
   <div class="ach-list">
-
-    <div class="ach-card fade-in">
-      <div class="ach-icon">🎓</div>
-      <div class="ach-body">
-        <h4>Supervised Machine Learning — DeepLearning.AI & Stanford Online (Andrew Ng)</h4>
-        <p>Completed coursework covering regression, classification, and core machine learning concepts.</p>
-      </div>
-      <div class="ach-date">Mar 2026<br>Certificate</div>
-    </div>
-
-    <div class="ach-card fade-in">
-      <div class="ach-icon">🏆</div>
-      <div class="ach-body">
-        <h4>1st Runner-Up — Culfest, NIT Jamshedpur</h4>
-        <p>Secured 1st Runner-up in an inter-college competition, demonstrating teamwork, problem-solving, and competitive performance.</p>
-      </div>
-      <div class="ach-date">June 2025</div>
-    </div>
 
     <div class="ach-card fade-in">
       <div class="ach-icon">🌐</div>
       <div class="ach-body">
         <h4>Coordinator — NITRIMUN (NIT Rourkela Model United Nations)</h4>
-        <p>Coordinated delegate outreach, event logistics, and team collaboration for MUN events, ensuring smooth execution under tight deadlines.</p>
+        <p>Led delegate outreach and event coordination initiatives for Model United Nations conferences, managing logistics and collaborating with teams to ensure successful execution in fast-paced, deadline-driven environments.</p>
       </div>
       <div class="ach-date">May 2024 – Present</div>
     </div>
@@ -848,15 +846,15 @@
 <!-- CONTACT -->
 <div class="contact-section" id="contact">
   <p class="section-label">Let's connect</p>
-  <h2 class="section-title" style="font-family: var(--serif); font-size: clamp(1.8rem,3vw,2.8rem);">Get In Touch</h2>
+  <h2 class="section-title">Get In Touch</h2>
   <p>Open to internships, collaborations, and interesting conversations.</p>
   <div class="social-links">
     <a href="https://github.com/123cs0178" class="social-link" target="_blank">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
       GitHub
     </a>
-    <a href="https://www.linkedin.com/in/rahul-kumar-9ba409413/" class="social-link" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+    <a href="https://www.linkedin.com/in/rahul-kumar-508820340/" class="social-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 .77 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0z"/></svg>
       LinkedIn
     </a>
     <a href="https://leetcode.com/u/Rahul_Bror/" class="social-link" target="_blank">
@@ -882,7 +880,7 @@
 <script>
   // Intersection Observer for scroll animations
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add('visible');
